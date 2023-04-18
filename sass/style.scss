@@ -1,0 +1,150 @@
+@use "./cssReset" as cssReset;
+@use "./colors" as colors;
+
+body {
+	font-size: 15px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	position: relative;
+	font-family: "Space Grotesk", sans-serif;
+    background-color: colors.$White;
+    color: colors.$Very_dark_violet;
+    letter-spacing: 1.2px;
+    
+}
+//=====================Wrapper================//
+.wrapper {
+	flex: 1 0 auto;
+	max-width: 370px;
+	min-width: 320px;
+	padding: 10px 10px;
+	position: relative;
+}
+//=====================Wrapper - end================//
+
+
+//===================== HEADER ================//
+header {
+    width: 100%;
+	height: 200px;
+	& img{
+		position: fixed;
+		width: 400vw;
+		height: 200px;
+		top: 0;
+		left: 0;
+		overflow:visible;
+	}
+	& .card {
+        width: 18rem;
+		aspect-ratio: 2 / 1;
+		background-color: #fff;
+		border-radius: 10px;
+		border: none;
+		background-size: cover;
+	}
+	.front {
+        position: absolute;
+		left: 20px;
+		top: 110px;
+		background-image: url(../img/bg-card-front.png);
+		z-index: 20;
+		& img{
+			position: absolute;
+			width: 50px;
+			height: auto;
+			top: 20px;
+			left: 20px;
+		}
+	}
+	.back {
+        position: absolute;
+		right: 20px;
+		top: 21px;
+		background-image: url(../img/bg-card-back.png);
+		z-index: 10;
+	}
+}
+//===================== HEADER - END ================//
+//===================== MAIN ================//
+
+.form {
+    display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 300px;
+	margin-top: 70px;
+}
+fieldset {
+    width: 100%;
+	border: none;
+	padding: 5px 0px;
+}
+label {
+    display: block;
+	text-transform: uppercase;
+    font-size: 14px;
+}
+input {
+    width: 100%;
+	border: 1px solid colors.$Light_grayish_violet;
+	border-radius: 5px;
+	padding: 10px;
+    margin-top: 5px;
+   
+}
+::placeholder{
+    color: colors.$Light_grayish_violet;
+    font-size: 18px;
+}
+.expDate__container {
+    display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 20px;
+}
+.date {
+    display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: 10px;
+	& input {
+        width: 70px;
+	}
+}
+button {
+    padding: 1.2rem;
+	width: 100%;
+	border: none;
+	border-radius: 10px;
+	text-transform: capitalize;
+	color: #fff;
+	background-color: black;
+}
+//===================== MAIN END ================//
+
+//=====================Footer=== =============//
+.footer {
+    padding: 0.5rem;
+	width: 100%;
+	color: #fff;
+	background-color: #ddd;
+	font-size: 0.7rem;
+	& .attribution {
+        text-align: center;
+		& a {
+            text-decoration: none;
+			color: #fff;
+			&:visited {
+				color: #fff;
+			}
+		}
+	}
+}
+//=====================Footer================//
