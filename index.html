@@ -31,24 +31,28 @@
     <main>
     
       <form class="form">
+
         <fieldset>
           <label for="name">Cardholder Name</label>
-          <input type="text" name="name" id="inputCardHolder" placeholder="e.g. Jane Appleseed" >
+          <input type="text" name="name" id="cardHolderInput" placeholder="e.g. Jane Appleseed" >
         </fieldset>
+
         <fieldset>
           <label for="cardNumber">Card Number
-            <input type="number" name="cardNumber" id="inputCardNumber" data-number placeholder="e.g. 1234 5678 9123 0000" >
+            <input type="text" maxlength="16" placeholder="e.g. 1234567891230000" id="cardNumberInput"   required>
           </label>
         </fieldset>
+
         <fieldset class="expDate__container">
           <label for="expDate"> Exp. Date (MM/YY)
             <div class="date">
-              <input type="number" name="expDate" placeholder="MM" maxlength="2" >
-              <input type="number" name="expDate" placeholder="YY" maxlength="2" >
+              <input type="text" maxlength="2" name="expDate" placeholder="MM"
+              >
+              <input type="text" maxlength="2" name="expDate" placeholder="YY" >
             </div>
           </label>
           <label for="cvc"> cvc
-            <input type="number" name="cvc" placeholder="eg 123">
+            <input type="text" maxlength="3" name="cvc" placeholder="eg 123">
           </label>
         </fieldset>
         <button class="btn__confirm">confirm</button>
