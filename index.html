@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
   <link rel="stylesheet" href="css/style.css">
   <title>Frontend Mentor | Interactive card details form</title>
 </head>
+
 <body>
   <wrapper class="wrapper">
     <header class="header">
@@ -29,26 +31,26 @@
       </div>
     </header>
     <main>
-    
+
       <form class="form">
 
         <fieldset>
           <label for="name">Cardholder Name</label>
-          <input type="text" name="name" id="cardHolderInput" placeholder="e.g. Jane Appleseed" >
+          <input type="text" name="name" id="cardHolderInput" placeholder="e.g. Jane Appleseed">
         </fieldset>
 
         <fieldset>
           <label for="cardNumber">Card Number
-            <input type="text" maxlength="16" placeholder="e.g. 1234567891230000" id="cardNumberInput"   required>
+            <input type="text" maxlength="16" class="" placeholder="e.g. 1234567891230000" id="cardNumberInput">
           </label>
+          <p class="error hide-content" id="errorCardNumber">Wrong format, numbers only</p>
         </fieldset>
 
         <fieldset class="expDate__container">
           <label for="expDate"> Exp. Date (MM/YY)
             <div class="date">
-              <input type="text" maxlength="2" name="expDate" placeholder="MM"
-              >
-              <input type="text" maxlength="2" name="expDate" placeholder="YY" >
+              <input type="text" maxlength="2" name="expDate" placeholder="MM">
+              <input type="text" maxlength="2" name="expDate" placeholder="YY">
             </div>
           </label>
           <label for="cvc"> cvc
@@ -60,12 +62,12 @@
 
       <section class="complete hide-content">
         <!-- Completed state start -->
-        
+
         <img src="./img/icon-complete.svg" alt="">
         <h1>Thank you!</h1>
         <p> We've added your card details</p>
-        <button>Continue</button>
-        
+        <button type="button" onClick="window.location.reload()">Continue</button>
+
         <!-- Completed state end -->
       </section>
     </main>
