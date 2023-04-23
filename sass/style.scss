@@ -1,5 +1,6 @@
 @use "./cssReset" as cssReset;
 @use "./colors" as colors;
+@use "./mixins" as mixins;
 
 body {
 	font-size: 15px;
@@ -75,8 +76,7 @@ header {
 	}
 }
 .front > .card-holder {
-	display: flex;
-	flex-direction: row;
+	@include mixins.flex_row_aic_jcc;
 	justify-content: space-between;
 	width: 85%;
 	position: absolute;
@@ -97,10 +97,8 @@ header {
 //===================== MAIN ================//
 
 .form {
-	display: flex;
-	flex-direction: column;
+	@include mixins.flex_col_aic_jcc;
 	justify-content: space-between;
-	align-items: center;
 	width: 100%;
 	height: 300px;
 	margin-top: 70px;
@@ -130,18 +128,18 @@ input:focus {
 	outline: none;
 	border: 1px solid colors.$Very_dark_violet;
 }
-
-.expDate__container {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	gap: 10px;
+.card__detail {
+	@include mixins.flex_row_aic_jcc;
+	align-items: flex-start;
 	margin-bottom: 20px;
+	gap: 10px;
+}
+.expDate__container {
+	@include mixins.flex_row_aic_jcc;
+	justify-content: space-between;
 }
 .date {
-	display: flex;
-	flex-direction: row;
+	@include mixins.flex_row_aic_jcc;
 	justify-content: space-between;
 	gap: 10px;
 	& input {

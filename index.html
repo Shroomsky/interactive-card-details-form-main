@@ -16,6 +16,7 @@
 <body>
   <wrapper class="wrapper">
     <header class="header">
+      <!-- card img -->
       <img src="./img/bg-main-mobile.png" alt="">
       <div class="card front">
         <img src="./img/card-logo.svg" alt="card-logo" aria-hidden="true">
@@ -23,20 +24,22 @@
         <div class="card-holder">
           <p id="card-holder">Jane Appleseed</p>
           <p id="date"><span id="MM">00</span>/<span id="YY">00</span></p>
-
         </div>
       </div>
       <div class="card back">
         <p id="cvc">000</pid>
       </div>
     </header>
+    <!-- card img -->
+
     <main>
 
       <form class="form">
 
-        <fieldset>
+        <fieldset id="cardHolder">
           <label for="name">Cardholder Name</label>
           <input type="text" name="name" id="cardHolderInput" placeholder="e.g. Jane Appleseed">
+          <!-- <p class="error">Can't be blank</p> -->
         </fieldset>
 
         <fieldset>
@@ -46,17 +49,21 @@
           <p class="error hide-content" id="errorCardNumber">Wrong format, numbers only</p>
         </fieldset>
 
-        <fieldset class="expDate__container">
-          <label for="expDate"> Exp. Date (MM/YY)
+      <section class="card__detail">
+        <div class="expDate__container">
+          <label for="expDate" class="expDate"> Exp. Date (MM/YY)
             <div class="date">
-              <input type="text" id="input_MM" maxlength="2" name="expDate" placeholder="MM">
-              <input type="text" id="input_YY" maxlength="2" name="expDate" placeholder="YY">
+              <input type="text" id="inputMM" maxlength="2" name="expDate" placeholder="MM">
+              <input type="text" id="inputYY" maxlength="2" name="expDate" placeholder="YY">
             </div>
           </label>
+        </div>
+        <div class="cvc__container">
           <label for="cvc"> cvc
-            <input type="text" maxlength="3" name="cvc" placeholder="eg 123">
+            <input type="text" maxlength="3" name="cvc" id="inputCvc" placeholder="eg 123">
           </label>
-        </fieldset>
+        </div>
+        </section>
         <button class="btn__confirm">confirm</button>
       </form>
 
