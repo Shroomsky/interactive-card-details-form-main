@@ -4,7 +4,7 @@ const cardHolderImg = document.querySelector("#card-holder");
 const cardHolderInput = document.querySelector("#cardHolderInput");
 const errorCardNumber = document.getElementById("errorCardNumber");
 const completeCard = document.querySelector(".complete");
-
+const mmInput = document.getElementById("input_MM");
 const form = document.querySelector("form");
 
 // card holder input handler
@@ -52,6 +52,23 @@ function numberFormat(value) {
 function submitForm() {
 	form.classList.toggle("hide-content");
 	completeCard.classList.toggle("hide-content");
+	mmInputCheck();
+}
+
+function mmInputCheck() {
+	if (
+		!isBlankCheck(mmInput.value) &&
+		typeof (inputToNumber(mmInput) === number)
+	) {
+		console.log("cycki");
+	} else {
+		console.log("dupa");
+	}
+}
+
+function inputToNumber(input) {
+	number = parseInt(input.value);
+	return number;
 }
 
 //app start
