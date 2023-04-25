@@ -74,6 +74,14 @@ function isBlankCheck(value) {
 	return res;
 }
 
+function rangeCheck(min, max, value) {
+	if (value >= min && value <= max) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
 function numberFormat(value) {
 	const regex = /^(\d{0,4})(\d{0,4})(\d{0,4})(\d{0,4})$/g;
 	return value.replace(regex, (regex, $1, $2, $3, $4) =>
@@ -92,13 +100,20 @@ function inputToNumber(input) {
 }
 // MM input handler
 function mmInputCheck() {
-	if (!isBlankCheck(mmInput.value) && inputToNumber(mmInput) === number) {
-		return true;
-	} else if(!yyInput.classList.contains("error") || !mmInput.classList.contains("error")){
-		mmInput.classList.add("error");
-		let error = blankInputError();
-		expDate.append(error);
-		return false;
+	if (rangeCheck(1, 12, mmInput.value)) {
+		if (!isBlankCheck(mmInput.value) && inputToNumber(mmInput) === number) {
+			return true;
+		} else if (
+			!yyInput.classList.contains("error") ||
+			!mmInput.classList.contains("error")
+		) {
+			mmInput.classList.add("error");
+			let error = blankInputError();
+			expDate.append(error);
+			return false;
+		}
+	} else {
+		console.log("out of rage");
 	}
 }
 
@@ -107,7 +122,10 @@ function mmInputCheck() {
 function yyInputCheck() {
 	if (!isBlankCheck(yyInput.value) && inputToNumber(yyInput) === number) {
 		return true;
-	} else if(!yyInput.classList.contains("error") || !mmInput.classList.contains("error")){
+	} else if (
+		!yyInput.classList.contains("error") ||
+		!mmInput.classList.contains("error")
+	) {
 		yyInput.classList.add("error");
 		let error = blankInputError();
 		expDate.append(error);
