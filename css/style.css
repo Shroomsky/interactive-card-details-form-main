@@ -79,7 +79,7 @@ body {
   flex: 1 0 auto;
   max-width: 370px;
   min-width: 360px;
-  padding: 10px 10px;
+  padding: 0 10px;
   position: relative;
 }
 
@@ -126,7 +126,7 @@ header .back {
   background-image: url(../img/bg-card-back.png);
   z-index: 10;
 }
-header .back #cvc {
+header .back #cvcImg {
   position: absolute;
   right: 30px;
   top: 67px;
@@ -148,7 +148,7 @@ header .back #cvc {
   font-size: 0.7rem;
 }
 
-.front > #card-number {
+.front > #cardNumberImg {
   position: absolute;
   top: 80px;
   left: 15px;

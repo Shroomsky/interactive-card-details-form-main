@@ -20,50 +20,47 @@
       <img src="./img/bg-main-mobile.png" alt="">
       <div class="card front">
         <img src="./img/card-logo.svg" alt="card-logo" aria-hidden="true">
-        <p id="card-number">0000 0000 0000 0000</p>
+        <p id="cardNumberImg">0000 0000 0000 0000</p>
         <div class="card-holder">
-          <p id="card-holder">Jane Appleseed</p>
-          <p id="date"><span id="MM">00</span>/<span id="YY">00</span></p>
+          <p id="cardHolderImg">Jane Appleseed</p>
+          <p id="date"><span id="mmImg">00</span>/<span id="yyImg">00</span></p>
         </div>
       </div>
       <div class="card back">
-        <p id="cvc">000</pid>
+        <p id="cvcImg">000</pid>
       </div>
     </header>
     <!-- card img -->
 
     <main>
-
       <form class="form">
 
         <fieldset id="cardHolder">
           <label for="name">Cardholder Name</label>
           <input type="text" name="name" id="cardHolderInput" placeholder="e.g. Jane Appleseed">
-          <!-- <p class="error">Can't be blank</p> -->
+
         </fieldset>
 
-        <fieldset>
-          <label for="cardNumber">Card Number
-            <input type="text" maxlength="16" class="" placeholder="e.g. 1234567891230000" id="cardNumberInput">
-          </label>
-          <p class="error hide-content" id="errorCardNumber">Wrong format, numbers only</p>
+        <fieldset id="cardNumber">
+          <label for="cardNumber">Card Number</label>
+          <input type="text" maxlength="16" class="" placeholder="e.g. 1234567891230000" id="cardNumberInput">
         </fieldset>
 
-      <section class="card__detail">
-        <div class="expDate__container">
-          <label for="expDate" class="expDate"> Exp. Date (MM/YY)
-            <div class="date">
-              <input type="number" id="inputMM"  name="expDate" placeholder="MM">
-              <input type="text" id="inputYY" maxlength="2" name="expDate" placeholder="YY">
-            </div>
-          </label>
-        </div>
-        <div class="cvc__container">
-          <label for="cvc"> cvc
-            <input type="text" maxlength="3" name="cvc" id="inputCvc" placeholder="eg 123">
-          </label>
-        </div>
-        </section>
+        <fieldset class="card__detail">
+          <div class="expDate__container">
+            <label for="expDate" class="expDate" id="expDate"> Exp. Date (MM/YY)
+              <div class="date">
+                <input type="text" id="inputMM" maxlength="2" placeholder="MM">
+                <input type="text" id="inputYY" maxlength="2" name="expDate" placeholder="YY">
+              </div>
+            </label>
+          </div>
+          <div class="cvc__container">
+            <label for="cvc"> cvc
+              <input type="text" maxlength="3" name="cvc" id="inputCvc" placeholder="eg 123">
+            </label>
+          </div>
+        </fieldset>
         <button class="btn__confirm">confirm</button>
       </form>
 
@@ -73,7 +70,7 @@
         <img src="./img/icon-complete.svg" alt="">
         <h1>Thank you!</h1>
         <p> We've added your card details</p>
-        <button type="button" onClick="window.location.reload()">Continue</button>
+        <button type="button" id="contineBtn" onClick="window.location.reload()">Continue</button>
 
         <!-- Completed state end -->
       </section>
@@ -85,7 +82,7 @@
       Coded by <a href="https://www.frontendmentor.io/profile/Shroomsky" target="_blank">@Shroomsky</a>.
     </p>
   </footer>
-  <script src="./js/app.js"></script>
+  <script src="./js/script.js"></script>
 </body>
 
 </html>
