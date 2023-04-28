@@ -1,0 +1,287 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100vh;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+a,
+a:link,
+a:visited {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+body {
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  font-family: "Space Grotesk", sans-serif;
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(278, 68%, 11%);
+  letter-spacing: 1.2px;
+}
+
+.wrapper {
+  flex: 1 0 auto;
+  max-width: 370px;
+  min-width: 360px;
+  padding: 0 10px;
+  position: relative;
+}
+
+header {
+  width: 100%;
+  height: 200px;
+}
+header img {
+  position: fixed;
+  width: 400vw;
+  height: 200px;
+  top: 0;
+  left: 0;
+  overflow: visible;
+}
+header .card {
+  width: 18rem;
+  aspect-ratio: 2/1.1;
+  background-color: #fff;
+  border-radius: 10px;
+  border: none;
+  background-size: cover;
+}
+header .front {
+  position: absolute;
+  left: 20px;
+  top: 110px;
+  background-image: url(../img/bg-card-front.png);
+  z-index: 20;
+  color: hsl(0, 0%, 100%);
+}
+header .front img {
+  position: absolute;
+  width: 70px;
+  height: auto;
+  top: 10px;
+  left: 15px;
+  padding: 5px;
+}
+header .back {
+  position: absolute;
+  right: 20px;
+  top: 21px;
+  background-image: url(../img/bg-card-back.png);
+  z-index: 10;
+}
+header .back #cvcImg {
+  position: absolute;
+  right: 30px;
+  top: 67px;
+  font-size: 0.8rem;
+  color: hsl(0, 0%, 100%);
+}
+
+.front > .card-holder {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  width: 85%;
+  position: absolute;
+  top: 120px;
+  left: 15px;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+}
+
+.front > #cardNumberImg {
+  position: absolute;
+  top: 80px;
+  left: 15px;
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 300px;
+  margin-top: 70px;
+}
+
+fieldset {
+  width: 100%;
+  border: none;
+  padding: 5px 0px;
+}
+
+label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+input {
+  width: 100%;
+  border: 1px solid hsl(270, 3%, 87%);
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 5px;
+}
+input ::-moz-placeholder {
+  color: hsl(270, 3%, 87%);
+  font-size: 18px;
+}
+input ::placeholder {
+  color: hsl(270, 3%, 87%);
+  font-size: 18px;
+}
+
+input:focus {
+  outline: none;
+  border: 1px solid hsl(278, 68%, 11%);
+}
+
+.card__detail {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.expDate__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+}
+
+.date {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.date input {
+  width: 70px;
+}
+
+button {
+  padding: 1.2rem;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  color: hsl(270, 3%, 87%);
+  background-color: hsl(278, 68%, 11%);
+}
+
+.complete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 20px;
+  margin-top: 100px;
+}
+.complete h1 {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+.complete p {
+  font-size: 1.2rem;
+  color: hsl(279, 6%, 55%);
+  margin-bottom: 20px;
+}
+
+.hide-content {
+  display: none;
+}
+
+.error {
+  color: hsl(0, 100%, 66%);
+  border-color: hsl(0, 100%, 66%);
+}
+
+.footer {
+  padding: 0.5rem;
+  width: 100%;
+  color: #fff;
+  background-color: #ddd;
+  font-size: 0.7rem;
+}
+.footer .attribution {
+  text-align: center;
+}
+.footer .attribution a {
+  text-decoration: none;
+  color: #fff;
+}
+.footer .attribution a:visited {
+  color: #fff;
+}/*# sourceMappingURL=style.css.map */

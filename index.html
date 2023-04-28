@@ -1,51 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="css/style.css">
   <title>Frontend Mentor | Interactive card details form</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
+
 <body>
+  <wrapper class="wrapper">
+    <header class="header">
+      <!-- card img -->
+      <img src="./img/bg-main-mobile.png" alt="">
+      <div class="card front">
+        <img src="./img/card-logo.svg" alt="card-logo" aria-hidden="true">
+        <p id="cardNumberImg">0000 0000 0000 0000</p>
+        <div class="card-holder">
+          <p id="cardHolderImg">Jane Appleseed</p>
+          <p id="date"><span id="mmImg">00</span>/<span id="yyImg">00</span></p>
+        </div>
+      </div>
+      <div class="card back">
+        <p id="cvcImg">000</pid>
+      </div>
+    </header>
+    <!-- card img -->
 
-  0000 0000 0000 0000
-  Jane Appleseed
-  00/00
+    <main>
+      <form class="form">
 
-  000
+        <fieldset id="cardHolder">
+          <label for="name">Cardholder Name</label>
+          <input type="text" name="name" id="cardHolderInput" placeholder="e.g. Jane Appleseed">
 
-  Cardholder Name
-  e.g. Jane Appleseed
+        </fieldset>
 
-  Card Number
-  e.g. 1234 5678 9123 0000
+        <fieldset id="cardNumber">
+          <label for="cardNumber">Card Number</label>
+          <input type="text" maxlength="16" class="" placeholder="e.g. 1234567891230000" id="cardNumberInput">
+        </fieldset>
 
-  Exp. Date (MM/YY)
-  MM
-  YY
+        <fieldset class="card__detail">
+          <div class="expDate__container">
+            <label for="expDate" class="expDate" id="expDate"> Exp. Date (MM/YY)
+              <div class="date">
+                <input type="text" id="inputMM" maxlength="2" placeholder="MM">
+                <input type="text" id="inputYY" maxlength="2" name="expDate" placeholder="YY">
+              </div>
+            </label>
+          </div>
+          <div class="cvc__container">
+            <label for="cvc"> cvc
+              <input type="text" maxlength="3" name="cvc" id="inputCvc" placeholder="eg 123">
+            </label>
+          </div>
+        </fieldset>
+        <button class="btn__confirm">confirm</button>
+      </form>
 
-  CVC
-  e.g. 123
+      <section class="complete hide-content">
+        <!-- Completed state start -->
 
-  Confirm
+        <img src="./img/icon-complete.svg" alt="">
+        <h1>Thank you!</h1>
+        <p> We've added your card details</p>
+        <button type="button" id="contineBtn" onClick="window.location.reload()">Continue</button>
 
-  <!-- Completed state start -->
-
-  Thank you!
-  We've added your card details
-  Continue
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+        <!-- Completed state end -->
+      </section>
+    </main>
+  </wrapper>
+  <footer class="footer">
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="https://www.frontendmentor.io/profile/Shroomsky" target="_blank">@Shroomsky</a>.
+    </p>
+  </footer>
+  <script src="./js/script.js"></script>
 </body>
-</html> 
+
+</html>
