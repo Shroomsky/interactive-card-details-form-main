@@ -18,14 +18,53 @@ const cvcImg = document.querySelector("#cvcImg");
 
 const form = document.querySelector(".form");
 const continueBtn = document.querySelector("#contineBtn");
-
 const complete = document.querySelector(".complete");
 //============================selections==========================//
 
 //=========================functions=================//
 
+function cardNumberFormat() {
+	let len = cardNumberInput.value.length;
+	let num = cardNumberInput.value;
+	if (len == 5) {
+		if (!spaceCheck(5)) {
+			let str1 = num.slice(0, 4);
+			let str2 = num.slice(-1);
+			cardNumberInput.value = `${str1} ${str2}`;
+			fieldUpdate(cardNumberImg, cardNumberInput);
+		}
+	} else if (len == 10) {
+		if (!spaceCheck(10)) {
+			let str1 = num.slice(0, 9);
+			let str2 = num.slice(-1);
+			cardNumberInput.value = `${str1} ${str2}`;
+			fieldUpdate(cardNumberImg, cardNumberInput);
+		}
+	}else if (len == 15){
+		if (!spaceCheck(15)) {
+			let str1 = num.slice(0, 14);
+			let str2 = num.slice(-1);
+			cardNumberInput.value = `${str1} ${str2}`;
+			fieldUpdate(cardNumberImg, cardNumberInput);
+		}
+
+	}
+	
+}
+
+function spaceCheck(c) {
+	str = cardNumberInput.value;
+	return str.charAt(c - 1) === " ";
+}
+
 function fieldUpdate(field, input) {
 	field.textContent = input.value;
+}
+
+function onlyNumbersCheck(value) {
+	const regex = /\d/;
+	res = regex.test(value);
+	return res;
 }
 
 function isBlankCheck(value) {
@@ -34,27 +73,43 @@ function isBlankCheck(value) {
 	return res;
 }
 
-function inputError() {
+function inputError(message) {
 	const p = document.createElement("p");
-	p.textContent = "Can't be balnk";
+	p.textContent = message;
 	p.classList.add("error");
 	p.setAttribute("id", "error");
 	return p;
 }
 
-function inputValidation(input) {
+function inputValidation(input, type) {
 	if (isBlankCheck(input.value)) {
 		if (!input.classList.contains("error")) {
 			input.classList.add("error");
-			input.parentNode.appendChild(inputError());
+			input.parentNode.appendChild(inputError("Can't be balnk"));
 		}
 		return false;
-	} else {
-		if (input.classList.contains("error")) {
+	} else if (input.classList.contains("error")) {
+		input.classList.remove("error");
+		let len = input.parentNode.children.length - 1;
+		input.parentNode.children[len].remove();
+		return true;
+	}
+	if (type == "number") {
+		if (!onlyNumbersCheck(input.value)) {
+			if (!input.classList.contains("error")) {
+				input.classList.add("error");
+				input.parentNode.appendChild(inputError("Wrong format. Only digits."));
+			}
+			return false;
+		} else if (input.classList.contains("error")) {
 			input.classList.remove("error");
 			let len = input.parentNode.children.length - 1;
 			input.parentNode.children[len].remove();
 		}
+		return true;
+		//weryfikacja formatu w type txt
+	} else if (type == "text") {
+		// console.log(onlyNumbersCheck(input.value));
 		return true;
 	}
 }
@@ -64,17 +119,18 @@ function expDateValidation() {
 	if (!dateValidation(mmInput) || !dateValidation(yyInput)) {
 		dateValidation(mmInput);
 		dateValidation(yyInput);
-		
+
 		if (!expdate.lastChild.previousSibling.classList.contains("error")) {
-			mmInput.parentNode.after(inputError());
+			mmInput.parentNode.after(inputError("Can't be balnk"));
 		}
 		return false;
-	} else  if (mmInput.parentNode.nextSibling == !(" ")){
-		mmInput.parentNode.nextSibling.remove();
-		return true;
-	
-	} else {
-		return true;
+	} else if (dateValidation(mmInput) && dateValidation(yyInput)) {
+		try {
+			mmInput.parentNode.nextSibling.remove();
+			return true;
+		} catch {
+			return true;
+		}
 	}
 }
 
@@ -97,7 +153,7 @@ function dateValidation(input) {
 }
 // ==================================================
 
-//=============Handler============================//
+//=============Updaters============================//
 //card holder update
 cardHolderInput.addEventListener("input", (e) => {
 	fieldUpdate(cardHolderImg, cardHolderInput);
@@ -122,31 +178,38 @@ cardNumberInput.addEventListener("input", (e) => {
 cvcInput.addEventListener("input", (e) => {
 	fieldUpdate(cvcImg, cvcInput);
 });
-
+//card number formater
+cardNumberInput.addEventListener("input", (e) => {
+	if (e.key !== "Backspace") {
+		inputValidation(cardNumberInput, "number")
+		cardNumberFormat();
+		// console.log(numberFormat(cardNumberInput.value))
+	}
+});
 // form submit handler
 form.addEventListener("submit", function (e) {
 	e.preventDefault();
-	inputValidation(cardHolderInput);
-	inputValidation(cardNumberInput);
+	inputValidation(cardHolderInput, "text");
+	inputValidation(cardNumberInput, "number");
 	expDateValidation();
-	inputValidation(cvcInput);
+	inputValidation(cvcInput, "number");
 
 	// console.log(
-	// 	inputValidation(cardHolderInput),
-	// 	inputValidation(cardNumberInput),
+	// 	inputValidation(cardHolderInput, "text"),
+	// 	inputValidation(cardNumberInput, "number"),
 	// 	expDateValidation(),
-	// 	inputValidation(cvcInput)
+	// 	inputValidation(cvcInput, "number")
 	// );
 
 	if (
-		inputValidation(cardHolderInput) &&
-		inputValidation(cardNumberInput) &&
+		inputValidation(cardHolderInput, "text") &&
+		inputValidation(cardNumberInput, "number") &&
 		expDateValidation() &&
-		inputValidation(cvcInput)
+		inputValidation(cvcInput, "number")
 	) {
 		complete.classList.remove("hide-content");
 		form.classList.add("hide-content");
-	} 
+	}
 });
 
 //=============Handler============================//
