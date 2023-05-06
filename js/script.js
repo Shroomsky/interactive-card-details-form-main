@@ -1,3 +1,5 @@
+import cardNumberFormat from "./formater.js";
+import fieldUpdate from "./updatefields.js";
 //============================selections==========================//
 //inputs selection
 const cardHolderInput = document.querySelector("#cardHolderInput");
@@ -23,53 +25,46 @@ const complete = document.querySelector(".complete");
 
 //=========================functions=================//
 
-function cardNumberFormat() {
-	let len = cardNumberInput.value.length;
-	let num = cardNumberInput.value;
-	if (len == 5) {
-		if (!spaceCheck(5)) {
-			let str1 = num.slice(0, 4);
-			let str2 = num.slice(-1);
-			cardNumberInput.value = `${str1} ${str2}`;
-			fieldUpdate(cardNumberImg, cardNumberInput);
-		}
-	} else if (len == 10) {
-		if (!spaceCheck(10)) {
-			let str1 = num.slice(0, 9);
-			let str2 = num.slice(-1);
-			cardNumberInput.value = `${str1} ${str2}`;
-			fieldUpdate(cardNumberImg, cardNumberInput);
-		}
-	}else if (len == 15){
-		if (!spaceCheck(15)) {
-			let str1 = num.slice(0, 14);
-			let str2 = num.slice(-1);
-			cardNumberInput.value = `${str1} ${str2}`;
-			fieldUpdate(cardNumberImg, cardNumberInput);
-		}
-
-	}
-	
-}
-
-function spaceCheck(c) {
-	str = cardNumberInput.value;
-	return str.charAt(c - 1) === " ";
-}
-
-function fieldUpdate(field, input) {
-	field.textContent = input.value;
-}
+// function cardNumberFormat() {
+// 	let len = cardNumberInput.value.length;
+// 	let num = cardNumberInput.value;
+// 	if (len == 5) {
+// 		if (!spaceCheck(5)) {
+// 			let str1 = num.slice(0, 4);
+// 			let str2 = num.slice(-1);
+// 			cardNumberInput.value = `${str1} ${str2}`;
+// 			fieldUpdate(cardNumberImg, cardNumberInput);
+// 		}
+// 	} else if (len == 10) {
+// 		if (!spaceCheck(10)) {
+// 			let str1 = num.slice(0, 9);
+// 			let str2 = num.slice(-1);
+// 			cardNumberInput.value = `${str1} ${str2}`;
+// 			fieldUpdate(cardNumberImg, cardNumberInput);
+// 		}
+// 	} else if (len == 15) {
+// 		if (!spaceCheck(15)) {
+// 			let str1 = num.slice(0, 14);
+// 			let str2 = num.slice(-1);
+// 			cardNumberInput.value = `${str1} ${str2}`;
+// 			fieldUpdate(cardNumberImg, cardNumberInput);
+// 		}
+// 	}
+// }
+// function spaceCheck(c) {
+// 	str = cardNumberInput.value;
+// 	return str.charAt(c - 1) === " ";
+// }
 
 function onlyNumbersCheck(value) {
 	const regex = /\d/;
-	res = regex.test(value);
+	let res = regex.test(value);
 	return res;
 }
 
 function isBlankCheck(value) {
 	const regex = /./;
-	res = !regex.test(value);
+	let res = !regex.test(value);
 	return res;
 }
 
@@ -181,7 +176,7 @@ cvcInput.addEventListener("input", (e) => {
 //card number formater
 cardNumberInput.addEventListener("input", (e) => {
 	if (e.key !== "Backspace") {
-		inputValidation(cardNumberInput, "number")
+		inputValidation(cardNumberInput, "number");
 		cardNumberFormat();
 		// console.log(numberFormat(cardNumberInput.value))
 	}
