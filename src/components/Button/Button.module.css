@@ -1,0 +1,9 @@
+.button {
+	width: 100%;
+	padding: 15px;
+	border: none;
+	border-radius: 5px;
+	margin-top: 20px;
+	color: var(--White);
+	background-color: var(--Very_dark_violet);
+}

@@ -1,0 +1,30 @@
+.container {
+	width: 90%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+	margin-top: 111px;
+}
+
+h2 {
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: var(--Very_dark_violet);
+}
+img {
+	margin-bottom: 10px;
+	width: 60px;
+}
+.container p {
+	color: var(--Dark_grayish_violet);
+}
+@media (min-width:992px) {
+    .container{
+        max-width: 600px;
+        padding: 50px;
+        margin-top: 0;
+        
+    }
+}

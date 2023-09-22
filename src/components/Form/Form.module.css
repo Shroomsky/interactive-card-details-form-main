@@ -1,0 +1,43 @@
+.form{
+    max-width: 350px;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    justify-content: space-evenly;
+    text-transform: uppercase;
+    
+    
+}
+.sec_container{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    
+}
+.mm_yy{
+    margin-left: -5px;
+    width: 160px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap:5px;
+}
+
+.mm_yy input {
+    width: 70px;
+}
+
+.errorMsg {
+	color: red;
+	font-size: 0.5rem;
+}
+@media (min-width:992px) {
+    .form{
+        max-width: 600px;
+        padding: 50px;
+        margin-top: 0;
+        
+    }
+}
