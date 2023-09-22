@@ -72,7 +72,7 @@ body {
 }
 .app {
 	flex: 1 0;
-	min-width: 375px;
+	min-width: 350px;
 	position: relative;
 	
 	
@@ -85,11 +85,4 @@ body {
 	color: var(--Very_dark_violet);
 	background-color: #ddd;
 	font-size: 0.7rem;
-}
-@media (min-width:786px) {
-	.app{
-		width: 100vw;
-		
-	}
-	
 }
