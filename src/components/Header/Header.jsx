@@ -6,7 +6,6 @@ import NotMobilebackGroundImg from "../../assets/images/bg-main-desktop.png";
 
 export function Header({ holderName, cardNumber, MM, YY, CVC }) {
 	const notMobile = useMediaQuery({ query: "(min-width:992px)" });
-	console.log(notMobile)
 	return (
 		<div className={styles.headerContainier}>
 			<img
