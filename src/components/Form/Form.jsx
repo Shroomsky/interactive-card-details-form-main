@@ -31,7 +31,8 @@ export function Form({
 	const [formatMmError, setFormatMmError] = useState(errorObj);
 	const [formatYyError, setFormatYyError] = useState(errorObj);
 	const [formatCvcError, setFormatCvcError] = useState(errorObj);
-	const [formatCcnError, setFormatCcnError] = useState(errorObj);
+	const [formatCcHolderError, setFormatCcHolderError] = useState(errorObj);
+	const [formatCcNumberError, setFormatCcNumberError] = useState(errorObj);
 
 	function holderNameInputFormatCheck() {
 		if (
@@ -54,7 +55,8 @@ export function Form({
 		if (
 			cardNumber == "" ||
 			cardNumber == " " ||
-			cardNumber == "0000 0000 0000 0000"
+			cardNumber == "0000 0000 0000 0000" ||
+			isNaN(cardNumber.replaceAll(" ", ""))
 		) {
 			setCardNnumberError({ ...cardNumberError, status: true });
 			return true;
@@ -103,7 +105,6 @@ export function Form({
 
 	function submitHandler(e) {
 		e.preventDefault();
-
 		const holder = holderNameInputFormatCheck();
 		const number = cardNumberInputBlankCheck();
 		const mm = mmInputCheck();
@@ -132,11 +133,11 @@ export function Form({
 				placeholder={` e.g. Jane Appleseed`}
 				error={cardHolderNameError}
 				errorMsg={
-					formatCcnError.status
+					formatCcHolderError.status
 						? cardHolderNameError.msgFormat
 						: cardHolderNameError.msgBlank
 				}
-				setFormatCcnError={setFormatCcnError}
+				setFormatCcHolderError={setFormatCcHolderError}
 				setError={setCardHolderNameError}
 				maxLength="30"
 			/>
@@ -146,7 +147,13 @@ export function Form({
 				label={"card number"}
 				placeholder={" e.g. 1234 5678 9123 0000"}
 				error={cardNumberError}
-				errorMsg={cardNumberError.msgBlank}
+				errorMsg={
+					formatCcNumberError.status
+						? formatCcNumberError.msgFormat
+						: formatCcNumberError.msgBlank
+				}
+				setFormatCcNumberError={setFormatCcNumberError}
+				formatCcNumberError={formatCcNumberError}
 				setError={setCardNnumberError}
 				maxLength="19"
 			/>

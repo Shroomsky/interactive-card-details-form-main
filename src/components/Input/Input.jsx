@@ -15,7 +15,9 @@ export function Input({
 	setFormatYyError,
 	setFormatCvcError,
 	formatCvcError,
-	setFormatCcnError,
+	setFormatCcHolderError,
+	setFormatCcNumberError,
+	formatCcNumberError, // do usunięcia
 	setError,
 }) {
 	const [inputValue, setIputValue] = useState("");
@@ -26,21 +28,30 @@ export function Input({
 
 		function ccnFormater(value) {
 			if (!isNaN(value)) {
-				setFormatCcnError({ ...error, status: true });
+				setFormatCcHolderError({ ...error, status: true });
 				return value;
 			} else {
-				setFormatCcnError({ ...error, status: false });
+				setFormatCcHolderError({ ...error, status: false });
 				setError({ ...error, status: false });
 				return value;
 			}
 		}
 
 		function ccFormater(value) {
+			if (isNaN(value.replaceAll(" ", "")) && value.length > 0) {
+				setFormatCcNumberError({ ...error, status: true });
+				setError({ ...error, status: true });
+			} else {
+				setFormatCcNumberError({ ...error, status: false });
+				setError({ ...error, status: false });
+			}
 			if (value.length < 19) {
 				value = value.replace(/\W/gi, "").replace(/(.{4})/g, "$1 ");
 				setError({ ...error, status: false });
+			
 				return value;
 			} else {
+				
 				return value;
 			}
 		}
