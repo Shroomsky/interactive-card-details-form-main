@@ -106,14 +106,16 @@ export function Form({
 			/>
 			<div className={styels.sec_container}>
 				<div>
-					<label className={inputStyles.label}>Exp. Date (MM/YY)</label>
+					<label className={inputStyles.label} htmlFor="MM">
+						Exp. Date (MM/YY)
+					</label>
 					<div className={styels.mm_yy}>
 						<Input
 							id="MM"
 							error={mmError}
 							setError={setMmError}
-							label={null}
 							placeholder={"MM"}
+							label={"MM"}
 							updater={setMM}
 							maxLength="2"
 							setFormatMMError={setFormatMmError}
@@ -121,9 +123,9 @@ export function Form({
 						/>
 						<Input
 							id="YY"
+							label={"YY"}
 							error={yyError}
 							setError={setYyError}
-							label={null}
 							placeholder={"YY"}
 							updater={setYY}
 							maxLength="2"

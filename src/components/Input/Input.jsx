@@ -54,7 +54,6 @@ export function Input({
 			}
 		}
 
-
 		if (id === "card number") {
 			setIputValue(ccFormater(input));
 			updater(ccFormater(input));
@@ -81,7 +80,6 @@ export function Input({
 			setIputValue(yy);
 			updater(yy);
 		} else if (id === "CVC") {
-
 			let cvc = input_formater(
 				input,
 				3,
@@ -92,8 +90,6 @@ export function Input({
 			);
 			setIputValue(cvc);
 			updater(cvc);
-
-		
 		} else if (id === "cardholder name") {
 			setIputValue(ccnFormater(input));
 			updater(ccnFormater(input));
@@ -102,7 +98,7 @@ export function Input({
 	return (
 		<>
 			<label className={styles.label} htmlFor={label}>
-				{label}
+				{id == "MM" || id == "YY" ? "" : label}
 			</label>
 			<input
 				onChange={handleInputChange}

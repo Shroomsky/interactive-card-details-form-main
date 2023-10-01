@@ -11,11 +11,17 @@ export function Header({ holderName, cardNumber, MM, YY, CVC }) {
 			<img
 				className={styles.headerImg}
 				src={notMobile ? NotMobilebackGroundImg : MobilebackGroundImg}
-				alt=""
+				alt="background image"
+				aria-hidden="true"
 			/>
 
 			<div className={`${styles.card_front} ${styles.card}`}>
-				<img src={cardIcon} alt="card logo" className={styles.card_logo} />
+				<img
+					src={cardIcon}
+					alt="card logo"
+					aria-hidden="true"
+					className={styles.card_logo}
+				/>
 				<section className={styles.card_details}>
 					<p className={styles.card_number}> {cardNumber}</p>
 					<div className={styles.card_holder}>

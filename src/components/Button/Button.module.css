@@ -6,4 +6,12 @@
 	margin-top: 20px;
 	color: var(--White);
 	background-color: var(--Very_dark_violet);
+	transition: transform 0.3s;
+	cursor: pointer;
+}
+.button:focus {
+	transform: scale(1.05);
+}
+.button:hover {
+	transform: scale(1.05);
 }
