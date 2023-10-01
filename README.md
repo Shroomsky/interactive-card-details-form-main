@@ -1,7 +1,6 @@
-
 # Frontend Mentor - Interactive card details form solution
 
-This is a solution to the [Interactive card details form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-card-details-form-XpS8cKZDWw). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Interactive card details form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-card-details-form-XpS8cKZDWw). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -12,7 +11,6 @@ This is a solution to the [Interactive card details form challenge on Frontend M
 - [My process](#my-process)
   - [Built with](#built-with)
 - [Author](#author)
-
 
 **Note: Delete this note and update the table of contents based on what sections you keep.**
 
@@ -32,9 +30,7 @@ Users should be able to:
 ### Screenshot
 
 ![Mobile View](./public/screenshots/Screenshot1.png)
-![Mobile View](./public/screenshots/Screenshot1.png)
-
-
+![Mobile View](./public/screenshots/Screenshot2.png)
 
 ### Links
 
@@ -51,14 +47,8 @@ Users should be able to:
 - Mobile-first workflow
 - [React](https://reactjs.org/) + Vite
 - [CSS Modules](https://github.com/css-modules/css-modules)
-- [svgLoader]  '@andylacko/vite-svg-react-loader'
-
-
-
+- [svgLoader] '@andylacko/vite-svg-react-loader'
 
 ## Author
 
 - Frontend Mentor - [@Shroomsky](https://www.frontendmentor.io/profile/Shroomsky)
-
-
-
