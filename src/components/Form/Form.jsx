@@ -3,6 +3,7 @@ import { Input } from "../Input/Input/";
 import styels from "./Form.module.css";
 import inputStyles from "../Input/Input.module.css";
 import { useState } from "react";
+import { inputCheck } from "../../utilis/inputCheck";
 
 const errorObj = {
 	status: false,
@@ -34,82 +35,28 @@ export function Form({
 	const [formatCcHolderError, setFormatCcHolderError] = useState(errorObj);
 	const [formatCcNumberError, setFormatCcNumberError] = useState(errorObj);
 
-	function holderNameInputFormatCheck() {
-		if (
-			holderName == "" ||
-			holderName == "Jane Appleseed" ||
-			holderName == " " ||
-			!isNaN(holderName)
-		) {
-			setCardHolderNameError({ ...cardHolderNameError, status: true });
-			return true;
-		} else {
-			setCardHolderNameError({ ...cardHolderNameError, status: false });
-			return false;
-		}
-	}
-
 	// to add Luhn Algorithm -  card number validation.
-
-	function cardNumberInputBlankCheck() {
-		if (
-			cardNumber == "" ||
-			cardNumber == " " ||
-			cardNumber == "0000 0000 0000 0000" ||
-			isNaN(cardNumber.replaceAll(" ", ""))
-		) {
-			setCardNnumberError({ ...cardNumberError, status: true });
-			return true;
-		} else {
-			setCardNnumberError({ ...cardNumberError, status: false });
-			return false;
-		}
-	}
-	function mmInputCheck() {
-		if (MM === "00" || MM === "" || MM === " " || isNaN(MM)) {
-			setMmError({ ...mmError, status: true });
-			return true;
-		} else if (formatMmError.status) {
-			setMmError({ ...mmError, status: true });
-			true;
-		} else {
-			setMmError({ ...mmError, status: false });
-			return false;
-		}
-	}
-
-	function yyInputCheck() {
-		if (YY == "00" || YY == "" || YY == " " || isNaN(YY)) {
-			setYyError({ ...yyError, status: true });
-			return true;
-		} else if (formatYyError.status) {
-			setYyError({ ...yyError, status: true });
-			return true;
-		} else {
-			setYyError({ ...yyError, status: false });
-			return false;
-		}
-	}
-	function cvcInputCheck() {
-		if (CVC == "000" || CVC == "" || CVC == " " || isNaN(CVC)) {
-			setCvcError({ ...cvcError, status: true });
-			return true;
-		} else if (formatCvcError.status) {
-			setCvcError({ ...cvcError, status: true });
-			return true;
-		} else {
-			setCvcError({ ...cvcError, status: false });
-			return false;
-		}
-	}
 
 	function submitHandler(e) {
 		e.preventDefault();
-		const holder = holderNameInputFormatCheck();
-		const number = cardNumberInputBlankCheck();
-		const mm = mmInputCheck();
-		const yy = yyInputCheck();
-		const cvc = cvcInputCheck();
+		const holder = inputCheck(
+			holderName,
+			"Jane Appleseed",
+			setCardHolderNameError,
+			cardHolderNameError,
+			false
+		);
+
+		const number = inputCheck(
+			cardNumber,
+			"0000 0000 0000 0000",
+			setCardNnumberError,
+			cardNumberError,
+			"card number"
+		);
+		const mm = inputCheck(MM, "00", setMmError, mmError);
+		const yy = inputCheck(YY, "00", setYyError, yyError);
+		const cvc = inputCheck(CVC, "000", setCvcError, cvcError);
 
 		if (!holder && !number && !mm && !yy && !cvc) {
 			let formDetail = {

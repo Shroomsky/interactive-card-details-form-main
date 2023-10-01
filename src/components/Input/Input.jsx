@@ -1,5 +1,6 @@
 import styles from "./Input.module.css";
 import { useState } from "react";
+import { input_formater } from "../../utilis/inputFormater";
 
 export function Input({
 	id,
@@ -17,7 +18,6 @@ export function Input({
 	formatCvcError,
 	setFormatCcHolderError,
 	setFormatCcNumberError,
-	formatCcNumberError, // do usunięcia
 	setError,
 }) {
 	const [inputValue, setIputValue] = useState("");
@@ -48,59 +48,52 @@ export function Input({
 			if (value.length < 19) {
 				value = value.replace(/\W/gi, "").replace(/(.{4})/g, "$1 ");
 				setError({ ...error, status: false });
-			
 				return value;
 			} else {
-				
 				return value;
 			}
 		}
 
-		function mm_format(value) {
-			if (value.length < 2 || isNaN(value)) {
-				setFormatMMError({ ...formatMMError, status: true });
-				return value;
-			} else {
-				setFormatMMError({ ...formatMMError, status: false });
-				setError({ ...error, status: false });
-				return value;
-			}
-		}
-
-		function yy_format(value) {
-			if (value.length < 2 || isNaN(value)) {
-				setFormatYyError({ ...formatYyError, status: true });
-				return value;
-			} else {
-				setFormatYyError({ ...formatYyError, status: false });
-				setError({ ...error, status: false });
-				return value;
-			}
-		}
-
-		function cvc_format(value) {
-			if (value.length < 3 || isNaN(value)) {
-				setFormatCvcError({ ...formatCvcError, status: true });
-				return value;
-			} else {
-				setFormatCvcError({ ...formatCvcError, status: false });
-				setError({ ...error, status: false });
-				return value;
-			}
-		}
 
 		if (id === "card number") {
 			setIputValue(ccFormater(input));
 			updater(ccFormater(input));
 		} else if (id === "MM") {
-			setIputValue(mm_format(input));
-			updater(mm_format(input));
+			let mm = input_formater(
+				input,
+				2,
+				setFormatMMError,
+				formatMMError,
+				setError,
+				error
+			);
+			setIputValue(mm);
+			updater(mm);
 		} else if (id === "YY") {
-			setIputValue(yy_format(input));
-			updater(yy_format(input));
+			let yy = input_formater(
+				input,
+				2,
+				setFormatYyError,
+				formatYyError,
+				setError,
+				error
+			);
+			setIputValue(yy);
+			updater(yy);
 		} else if (id === "CVC") {
-			setIputValue(cvc_format(input));
-			updater(cvc_format(input));
+
+			let cvc = input_formater(
+				input,
+				3,
+				setFormatCvcError,
+				formatCvcError,
+				setError,
+				error
+			);
+			setIputValue(cvc);
+			updater(cvc);
+
+		
 		} else if (id === "cardholder name") {
 			setIputValue(ccnFormater(input));
 			updater(ccnFormater(input));
