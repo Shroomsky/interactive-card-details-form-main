@@ -29,8 +29,8 @@ Users should be able to:
 
 ### Screenshot
 
-![Mobile View](./public/screenshots/Screenshot1.png)
 ![Mobile View](./public/screenshots/Screenshot2.png)
+![Mobile View](./public/screenshots/Screenshot1.png)
 
 ### Links
 
